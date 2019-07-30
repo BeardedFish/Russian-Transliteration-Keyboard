@@ -7,8 +7,8 @@ $(document).ready(function () {
 });
 
 $(function () {
-    var shift = false,
-        capslock = false;
+    var shift = false; // States if the shift key on the virtual keyboard is on.
+    var capslock = false; // States if the caps lock key on the virtual keyboard is on.
 
     $('#keyboard li').click(function () {
         var $this = $(this),
@@ -62,7 +62,10 @@ $(function () {
 });
 
 function translit(event) {
+    // Array of every English letter to be replaced with a Russian letter:
     var englishKeys = ["q", "w", "r", "t", "y", "u", "i", "p", "[", "]", "\'", "s", "d", "f", "g", "h", "j", "k", "l", ":", "'", "z", "c", "v", "b", "n", "m", ",", ".", "/"];
+
+    // Array of the Russian letters to replace the English letters.
     var translitKey = ["я", "ш", "p", "т", "ы", "у", "и", "п", "ю", "щ", "э", "с", "д", "ф", "г", "ч", "й", "к", "л", "Ь", "ж", "з", "ц", "в", "б", "н", "м", ";", ",", "="];
 
     var replaced = false; // States whether the key has been translit or not.
