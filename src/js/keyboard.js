@@ -73,7 +73,7 @@ function translit(event) {
 
     for (var i = 0; i < englishKeys.length; i++) {
         if (englishKeys[i].toLowerCase() == event.key.toLowerCase()) {
-            if (event.shiftKey) {
+            if (event.shiftKey || event.getModifierState("CapsLock")) {
                 char = translitKey[i].toUpperCase();
             } else {
                 char = translitKey[i];
