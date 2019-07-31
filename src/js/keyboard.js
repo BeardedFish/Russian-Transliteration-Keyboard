@@ -63,10 +63,10 @@ $(function () {
 
 function translit(event) {
     // Array of every English letter to be replaced with a Russian letter:
-    var englishKeys = ["q", "w", "r", "t", "y", "u", "i", "p", "[", "]", "\'", "s", "d", "f", "g", "h", "j", "k", "l", ":", "'", "z", "c", "v", "b", "n", "m", ",", ".", "/"];
+    var englishKeys = ["q", "w", "r", "t", "y", "u", "i", "p", "[", "]", "\'", "s", "d", "f", "g", "h", "j", "k", "l", ":", "'", "z", "c", "v", "b", "n", "m", ",", ".", "/", "?", "`", "~", "!", "@", "#", "$", "%", "^", "&", "*", "=", "+"];
 
     // Array of the Russian letters to replace the English letters.
-    var translitKey = ["я", "ш", "p", "т", "ы", "у", "и", "п", "ю", "щ", "э", "с", "д", "ф", "г", "ч", "й", "к", "л", "Ь", "ж", "з", "ц", "в", "б", "н", "м", ";", ",", "="];
+    var translitKey = ["я", "ш", "p", "т", "ы", "у", "и", "п", "ю", "щ", "э", "с", "д", "ф", "г", "ч", "й", "к", "л", "Ь", "ж", "з", "ц", "в", "б", "н", "м", ";", ",", "=", "%", "ё", "Ё", "№", "!", "/", "\"", ":", "«", "»", "?", "ъ", "Ъ"];
 
     var replaced = false; // States whether the key has been translit or not.
     var char; // The character to be written onto the text area.
