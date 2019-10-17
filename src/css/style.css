@@ -4,13 +4,20 @@
 }
 
 body {
-    font: 71%/1.5 Verdana, Sans-Serif;
+    font: 71% / 1.5 Verdana, Sans-Serif;
     background: #eee;
 }
 
 #container {
-    margin: 100px auto;
+    margin: 50px auto;
     width: 688px;
+}
+
+#container h1 {
+    color: #9c9c9c;
+    font-weight: lighter;
+    text-align: center;
+    padding: 25px;
 }
 
 #write {
