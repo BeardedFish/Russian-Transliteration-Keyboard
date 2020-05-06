@@ -24,7 +24,8 @@ header h1, h2 {
 }
 
 main {
-    margin: 25px auto;
+    margin: 50px auto;
+    overflow: auto;
     width: 80%;
 }
 
@@ -81,12 +82,17 @@ aside li a:hover {
 }
 
 #virtual-keyboard {
-    padding: 0;
+    background-color: rgb(250, 250, 250);
+    border: 1px solid #323232;
+    padding: 25px;
+    text-align: center;
 }
 
 #virtual-keyboard li {
+    cursor: pointer;
     display: inline-block;
     list-style: none;
+    user-select: none;
 }
 
 .keyboard-key {
@@ -95,4 +101,14 @@ aside li a:hover {
     margin-bottom: 15px;
     margin-right: 10px;
     padding: 10px 15px;
+}
+
+.keyboard-key:hover {
+    background: linear-gradient(#E1E1E1, #A4A4A4);
+    box-shadow: 0 0 5px #000;
+}
+
+.keyboard-key:active {
+    background: linear-gradient(#A4A4A4, #E1E1E1);
+    box-shadow: 0 0 5px #000;
 }
