@@ -61,21 +61,35 @@ $(function () {
     });
 });
 
-function translit(event) {
-    // Array of every English letter to be replaced with a Russian letter:
-    var englishKeys = ["q", "w", "r", "t", "y", "u", "i", "p", "[", "]", "\'", "s", "d", "f", "g", "h", "j", "k", "l", ":", "'", "z", "c", "v", "b", "n", "m", ",", ".", "/", "?", "`", "~", "!", "@", "#", "$", "%", "^", "&", "*", "=", "+"];
+function translit(event)
+{
+    if (event.ctrlKey)
+    {
+        navigator.clipboard.readText().then(
+            clipText => document.querySelector("#write").innerText += clipText);
 
-    // Array of the Russian letters to replace the English letters.
-    var translitKey = ["я", "ш", "p", "т", "ы", "у", "и", "п", "ю", "щ", "э", "с", "д", "ф", "г", "ч", "й", "к", "л", "Ь", "ж", "з", "ц", "в", "б", "н", "м", ";", ",", "=", "%", "ё", "Ё", "№", "!", "/", "\"", ":", "«", "»", "?", "ъ", "Ъ"];
+        return;
+    }
+
+    // Array of every English letter to be replaced with a Russian letter:
+    var englishKeys = [ "q", "w", "r", "t", "y", "u", "i", "p", "[", "]", "\'", "s", "d", "f", "g", "h", "j", "k", "l", ":", "'", "z", "c", "v", "b", "n", "m", ",", ".", "/", "?", "`", "~", "!", "@", "#", "$", "%", "^", "&", "*", "=", "+" ];
+
+    // Array of the Russian letters to replace the English letters. ч
+    var translitKey = [ "я", "щ", "р", "т", "ы", "у", "и", "п", "ю", "щ", "э", "с", "д", "ф", "г", "х", "й", "к", "л", "Ь", "ж", "з", "ц", "в", "б", "н", "м", ";", ",", "=", "%", "ё", "Ё", "№", "!", "/", "\"", ":", "«", "»", "?", "ъ", "Ъ" ];
 
     var replaced = false; // States whether the key has been translit or not.
     var char; // The character to be written onto the text area.
 
-    for (var i = 0; i < englishKeys.length; i++) {
-        if (englishKeys[i].toLowerCase() == event.key.toLowerCase()) {
-            if (event.shiftKey || event.getModifierState("CapsLock")) {
+    for (var i = 0; i < englishKeys.length; i++)
+    {
+        if (englishKeys[i].toLowerCase() == event.key.toLowerCase())
+        {
+            if (event.shiftKey || event.getModifierState("CapsLock"))
+            {
                 char = translitKey[i].toUpperCase();
-            } else {
+            }
+            else
+            {
                 char = translitKey[i];
             }
 
@@ -84,23 +98,28 @@ function translit(event) {
         }
     }
 
-    if (replaced) {
+    if (replaced)
+    {
         event.preventDefault()
         $write.insertAtCaret(char);
     }
 }
 
 jQuery.fn.extend({
-    insertAtCaret: function (myValue) {
-        return this.each(function (i) {
-            if (document.selection) {
+    insertAtCaret: function (myValue)
+    {
+        return this.each(function (i)
+        {
+            if (document.selection)
+            {
                 // For browsers like Internet Explorer:
                 this.focus();
                 var sel = document.selection.createRange();
                 sel.text = myValue;
                 this.focus();
             }
-            else if (this.selectionStart || this.selectionStart == '0') {
+            else if (this.selectionStart || this.selectionStart == '0')
+            {
                 // For browsers like Firefox and Webkit based:
                 var startPos = this.selectionStart;
                 var endPos = this.selectionEnd;
@@ -110,40 +129,51 @@ jQuery.fn.extend({
                 this.selectionStart = startPos + myValue.length;
                 this.selectionEnd = startPos + myValue.length;
                 this.scrollTop = scrollTop;
-            } else {
+            }
+            else
+            {
                 this.value += myValue;
                 this.focus();
             }
         });
     },
-    deleteAtCaret: function () {
-        return this.each(function (i) {
-            if (document.selection) {
+    deleteAtCaret: function()
+    {
+        return this.each(function (i)
+        {
+            if (document.selection)
+            {
                 // For browsers like Internet Explorer:
                 this.focus();
                 var sel = document.selection.createRange();
                 sel.text = '';
                 this.focus();
             }
-            else if (this.selectionStart || this.selectionStart == '0') {
+            else if (this.selectionStart || this.selectionStart == '0')
+            {
                 // For browsers like Firefox and Webkit based:
                 var startPos = this.selectionStart;
                 var endPos = this.selectionEnd;
                 var scrollTop = this.scrollTop;
-                if (startPos == endPos) {
+                if (startPos == endPos)
+                {
                     this.value = this.value.substring(0, startPos - 1) + this.value.substring(endPos, this.value.length);
                     this.focus();
                     this.selectionStart = startPos - 1;
                     this.selectionEnd = startPos - 1;
                     this.scrollTop = scrollTop;
-                } else {
+                }
+                else
+                {
                     this.value = this.value.substring(0, startPos) + this.value.substring(endPos, this.value.length);
                     this.focus();
                     this.selectionStart = startPos;
                     this.selectionEnd = startPos;
                     this.scrollTop = scrollTop;
                 }
-            } else {
+            }
+            else
+            {
                 this.value = this.value.substring(0, this.value.length - 2);
                 this.focus();
             }

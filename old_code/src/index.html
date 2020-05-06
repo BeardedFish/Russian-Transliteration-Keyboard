@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+     
+    <title>Russian Transliteration Keyboard</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
+<body>
+    <div id="container">
+        <h1>Russian Transliteration Keyboard</h1>
+
+        <textarea id="write" rows="6" cols="60" onkeydown="translit(event)"></textarea>
+
+        <ul id="keyboard">
+            <li class="symbol"><span class="off">ё</span><span class="on">Ё</span></li>
+            <li class="symbol"><span class="off">1</span><span class="on">!</span></li>
+            <li class="symbol"><span class="off">2</span><span class="on">@</span></li>
+            <li class="symbol"><span class="off">3</span><span class="on">#</span></li>
+            <li class="symbol"><span class="off">4</span><span class="on">$</span></li>
+            <li class="symbol"><span class="off">5</span><span class="on">%</span></li>
+            <li class="symbol"><span class="off">6</span><span class="on">^</span></li>
+            <li class="symbol"><span class="off">7</span><span class="on">&amp;</span></li>
+            <li class="symbol"><span class="off">8</span><span class="on">*</span></li>
+            <li class="symbol"><span class="off">9</span><span class="on">(</span></li>
+            <li class="symbol"><span class="off">0</span><span class="on">)</span></li>
+            <li class="symbol"><span class="off">-</span><span class="on">_</span></li>
+            <li class="symbol"><span class="off">=</span><span class="on">+</span></li>
+            <li class="delete lastitem">Backspace</li>
+            <li class="tab">Tab</li>
+            <li class="letter">я</li>
+            <li class="letter">ш</li>
+            <li class="letter">е</li>
+            <li class="letter">р</li>
+            <li class="letter">т</li>
+            <li class="letter">ы</li>
+            <li class="letter">у</li>
+            <li class="letter">и</li>
+            <li class="letter">о</li>
+            <li class="letter">п</li>
+            <li class="symbol"><span class="off">ю</span><span class="on">Ю</span></li>
+            <li class="symbol"><span class="off">щ</span><span class="on">Щ</span></li>
+            <li class="symbol lastitem"><span class="off">э</span><span class="on">Э</span></li>
+            <li class="capslock">Caps Lock</li>
+            <li class="letter">а</li>
+            <li class="letter">c</li>
+            <li class="letter">д</li>
+            <li class="letter">ф</li>
+            <li class="letter">г</li>
+            <!--<li class="letter">ч</li>-->
+            <li class="letter">x</li>
+            <li class="letter">й</li>
+            <li class="letter">к</li>
+            <li class="letter">л</li>
+            <li class="symbol"><span class="off">ь</span><span class="on">Ь</span></li>
+            <li class="symbol"><span class="off">ж</span><span class="on">Ж</span></li>
+            <li class="return lastitem">Enter</li>
+            <li class="left-shift">Shift</li>
+            <li class="letter">з</li>
+            <li class="letter">х</li>
+            <li class="letter">ц</li>
+            <li class="letter">в</li>
+            <li class="letter">б</li>
+            <li class="letter">н</li>
+            <li class="letter">м</li>
+            <li class="symbol"><span class="off">;</span><span class="on">'</span></li>
+            <li class="symbol"><span class="off">.</span><span class="on">,</span></li>
+            <li class="symbol"><span class="off">=</span><span class="on">%</span></li>
+            <li class="right-shift lastitem">Shift</li>
+            <li class="space lastitem">&nbsp;</li>
+        </ul>
+    </div>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+    <script type="text/javascript" src="js/keyboard.js"></script>
+</body>
+</html>

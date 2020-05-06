@@ -1,0 +1,98 @@
+/*
+ * File Name: main.css
+ * Purpose:
+ * Date: Tuesday, May 5, 2020
+ */
+
+body {
+    background: #F1F1F1;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 100%;
+    margin: 0;
+}
+
+header {
+    background-color: rgb(25, 25, 25);
+    border-bottom: 10px solid #323232;
+    box-shadow: 0 0 25px #000;
+    color: #FF9600;
+    padding: 5px 10%;
+}
+
+header h1, h2 {
+    font-weight: normal;
+}
+
+main {
+    margin: 25px auto;
+    width: 80%;
+}
+
+section {
+    float: left;
+    width: 70%;
+}
+
+aside {
+    float: right;
+    width: 25%;
+}
+
+section, aside {
+    background-color: #FFF;
+    border: 1px solid #323232;
+}
+
+section h2, aside h2 {
+    background: linear-gradient(#FAFAFA, #D7D7D7);
+    border-bottom: 1px solid #323232;
+    color: rgb(25, 25, 25);
+    margin: 0;
+    padding: 25px;
+}
+
+aside ul {
+    margin: 15px;
+    padding: 0;
+}
+
+aside li {
+    list-style: none;
+}
+
+aside li a {
+    color: #FF9600;
+    text-decoration: none;
+}
+
+aside li a:hover {
+    text-decoration: underline;
+}
+
+#interactive-area {
+    margin: 25px;
+}
+
+#write-area {
+    border: 1px solid #323232;
+    font-size: 125%;
+    resize: none;
+    width: 100%;
+}
+
+#virtual-keyboard {
+    padding: 0;
+}
+
+#virtual-keyboard li {
+    display: inline-block;
+    list-style: none;
+}
+
+.keyboard-key {
+    background: linear-gradient(#FAFAFA, #D7D7D7);
+    border: 1px solid #323232;
+    margin-bottom: 15px;
+    margin-right: 10px;
+    padding: 10px 15px;
+}
