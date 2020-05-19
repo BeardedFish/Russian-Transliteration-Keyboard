@@ -1,22 +1,30 @@
 /*
- * File Name: main.css
- * Purpose:
- * Date: Tuesday, May 5, 2020
+ * File Name:     main.css
+ * By:            Darian Benam (GitHub: https://github.com/BeardedFish/)
+ * Date:          Tuesday, May 5, 2020
  */
 
 body {
-    background: #F1F1F1;
+    background: #141414;/*#F1F1F1;*/
     font-family: Helvetica, Arial, sans-serif;
     font-size: 100%;
     margin: 0;
 }
 
 header {
-    background-color: rgb(25, 25, 25);
-    border-bottom: 10px solid #323232;
-    box-shadow: 0 0 25px #000;
-    color: #FF9600;
-    padding: 5px 10%;
+    background-color: #1F1F1F;
+    /*border-bottom: 1px solid #323232;*/
+    box-shadow: 0 0 15px #000;
+    color: #FFF;
+    padding: 0 10%;
+}
+
+header h1 {
+    background: linear-gradient(#1669b7, #00509E);
+    display: inline-block;
+    margin: 0;
+    padding: 25px 25px;
+    text-shadow: 2px 2px 5px #000;
 }
 
 header h1, h2 {
@@ -25,7 +33,7 @@ header h1, h2 {
 
 main {
     margin: 50px auto;
-    overflow: auto;
+    overflow: visible;
     width: 80%;
 }
 
@@ -39,15 +47,19 @@ aside {
     width: 25%;
 }
 
-section, aside {
-    background-color: #FFF;
-    border: 1px solid #323232;
+aside, section {
+    background-color: #282a2c; /*#FFF;*/
+    border: 2px solid #363636;
+    border-radius: 5px;
+    box-shadow: 0 0 15px #000;
+    margin-bottom: 50px;
 }
 
 section h2, aside h2 {
-    background: linear-gradient(#FAFAFA, #D7D7D7);
-    border-bottom: 1px solid #323232;
-    color: rgb(25, 25, 25);
+    background: #1F1F1F;
+    border-bottom: 2px solid #363636;
+    border-radius: 5px 5px 0 0;
+    color: #CCC;
     margin: 0;
     padding: 25px;
 }
@@ -59,10 +71,11 @@ aside ul {
 
 aside li {
     list-style: none;
+    margin-bottom: 15px;
 }
 
 aside li a {
-    color: #FF9600;
+    color: #1669b7;
     text-decoration: none;
 }
 
@@ -75,40 +88,86 @@ aside li a:hover {
 }
 
 #write-area {
-    border: 1px solid #323232;
-    font-size: 125%;
+    background-color: #3d3d3d;
+    /*border: 1px solid #323232;*/
+    border: none;
+    caret-color: #FFF;
+    color: #FFF;
+    font-size: 150%;
+    height: 250px;
+    line-height: 1.5em;
+    margin-bottom: 25px;
     resize: none;
-    width: 100%;
+    width: calc(100% - 18px);
+    padding: 5px 10px;
+    transition: box-shadow .2s ease-in-out;
+}
+
+#write-area:hover {
+    box-shadow: 0 0 5px #1669b7;
+}
+
+#write-area:focus {
+    box-shadow: 0 0 5px #1669b7;
 }
 
 #virtual-keyboard {
-    background-color: rgb(250, 250, 250);
-    border: 1px solid #323232;
+    background-color: #1F1F1F;
+    /* border: 1px solid #323232;*/
     padding: 25px;
-    text-align: center;
+    padding-bottom: 15px;
+    width: calc(100% - 48px);
+    overflow-x: auto;
 }
 
-#virtual-keyboard li {
-    cursor: pointer;
+#virtual-keyboard div {
     display: inline-block;
+    white-space: nowrap;
     list-style: none;
+    margin-bottom: 10px;
+    text-align: center;
     user-select: none;
 }
 
-.keyboard-key {
-    background: linear-gradient(#FAFAFA, #D7D7D7);
-    border: 1px solid #323232;
+#virtual-keyboard div:last-child {
+    margin-bottom: 5px;
+}
+
+.keyboard-key, .special-keyboard-key {
+    background: #3D3D3D; /*linear-gradient(#FAFAFA, #D7D7D7);*/
+    border-radius: 5px;
+    /*border: 1px solid #323232;*/
+    color: #CCC;
+    cursor: pointer;
     margin-bottom: 15px;
     margin-right: 10px;
+    transition: background-color .2s ease-in-out, box-shadow .2s ease-in-out;
+}
+
+.special-keyboard-key {
+    padding: 10px 45px;
+}
+
+.keyboard-key {
     padding: 10px 15px;
 }
 
-.keyboard-key:hover {
-    background: linear-gradient(#E1E1E1, #A4A4A4);
-    box-shadow: 0 0 5px #000;
+#spacebar-key {
+    padding: 10px 150px;
 }
 
-.keyboard-key:active {
-    background: linear-gradient(#A4A4A4, #E1E1E1);
-    box-shadow: 0 0 5px #000;
+.keyboard-key:hover, .special-keyboard-key:hover {
+    background-color: #1669b7; /*linear-gradient(#E1E1E1, #A4A4A4);*/
+    box-shadow: 0 0 5px #1669b7;
+}
+
+.keyboard-key:active, .special-keyboard-key:active {
+    background-color: #00509E;
+    /*background: linear-gradient(#A4A4A4, #E1E1E1);*/
+    box-shadow: 0 0 5px #00509E;
+}
+
+.keyboard-row {
+    position: relative;
+    width: 100%;
 }

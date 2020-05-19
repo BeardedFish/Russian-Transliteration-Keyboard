@@ -1,54 +1,50 @@
-/*
- * File Name: ru_translit.js
- * Purpose:
- * Date: Tuesday, May 5, 2020
- */
+// File Name:     ru_translit.js
+// By:            Darian Benam (GitHub: https://github.com/BeardedFish)
+// Date:          Tuesday, May 5, 2020
 
 var translitMap = [
-    [ "q", "я" ],
-    [ "w", "ш" ],
-    [ "r", "р" ],
-    [ "t", "т" ],
-    [ "y", "ы" ],
-    [ "u", "у" ],
-    [ "i", "и" ],
-    [ "p", "п" ],
-    [ "[", "ю" ],
-    [ "]", "щ" ],
-    [ "\'", "ж" ],
-    [ "\\", "э" ],
-    [ "s", "с" ],
+    // [ "a", "a" ],
+    [ "b", "б" ],
+    [ "c", "ц" ],
     [ "d", "д" ],
+    // [ "e", "е" ],
     [ "f", "ф" ],
     [ "g", "г" ],
-    [ "h", "х" ],
+    [ "h", "ч" ],
+    [ "i", "и" ],
     [ "j", "й" ],
     [ "k", "к" ],
     [ "l", "л" ],
+    [ "m", "м" ],
+    [ "n", "н" ],
+    // [ "o", "о" ],
+    [ "p", "п" ],
+    [ "q", "я" ],
+    [ "r", "р" ],
+    [ "s", "с" ],
+    [ "t", "т" ],
+    [ "u", "у" ],
+    [ "v", "в" ],
+    [ "w", "ш" ],
+    // [ "x", "x" ],
+    [ "y", "ы" ],
+    [ "z", "з" ],
+    [ "`", "ё" ],
+    [ "~", "Ё" ],    
+    [ "$", "\"" ],
+    [ "%", ":" ],
+    [ "=", "ъ" ],
+    [ "+", "Ъ" ],
+    [ "[", "ю" ],
+    [ "{", "Ю" ],
+    [ "]", "щ" ],
+    [ "}", "Щ" ],
+    [ "\\", "э" ],
+    [ "|", "Э" ],
     [ ";", "ь" ],
     [ ":", "Ь" ],
     [ "'", "ж" ],
-    [ "z", "з" ],
-    [ "c", "ц" ],
-    [ "v", "в" ],
-    [ "b", "б" ],
-    [ "n", "н" ],
-    [ "m", "м" ],
-    [ ",", ";" ],
-    [ ".", "," ],
-    [ "/", "=" ],
-    [ "?", "%" ],
-    [ "`", "ё" ],
-    [ "~", "Ё" ],
-    [ "!", "№" ],
-    [ "@", "!" ],
-    [ "#", "/" ],
-    [ "$", "\"" ],
-    [ "%", ":" ],
-    [ "^", "«" ],
-    [ "*", "»" ],
-    [ "=", "ъ" ],
-    [ "+", "Ъ" ]
+    [ "\"", "Ж" ]
 ];
 
 $(document).ready(function()
@@ -66,8 +62,17 @@ function translit(event)
         {
             if (translitMap[j][0] == text[i].toLowerCase())
             {
+                var translitChar;
+                if (event.shiftKey === undefined || event.getModifierState === undefined)
+                {
+                    translitChar = translitMap[j][1];
+                }
+                else
+                {
+                    translitChar = event.shiftKey || event.getModifierState("CapsLock") ? translitMap[j][1].toUpperCase() : translitMap[j][1];
+                }
+
                 // Replace the letter to its Russian equivelent
-                var translitChar = event.shiftKey ? translitMap[j][1].toUpperCase() : translitMap[j][1];
                 text = text.substring(0, i) + translitChar+ text.substring(i + 1);
 
                 // No need to check the other letters so just break out of the inner for loop
