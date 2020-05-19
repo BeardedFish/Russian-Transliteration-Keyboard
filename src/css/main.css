@@ -5,7 +5,7 @@
  */
 
 body {
-    background: #141414;/*#F1F1F1;*/
+    background: #141414;
     font-family: Helvetica, Arial, sans-serif;
     font-size: 100%;
     margin: 0;
@@ -13,7 +13,6 @@ body {
 
 header {
     background-color: #1F1F1F;
-    /*border-bottom: 1px solid #323232;*/
     box-shadow: 0 0 15px #000;
     color: #FFF;
     padding: 0 10%;
@@ -89,7 +88,6 @@ aside li a:hover {
 
 #write-area {
     background-color: #3d3d3d;
-    /*border: 1px solid #323232;*/
     border: none;
     caret-color: #FFF;
     color: #FFF;
@@ -113,9 +111,10 @@ aside li a:hover {
 
 #virtual-keyboard {
     background-color: #1F1F1F;
-    /* border: 1px solid #323232;*/
+    font-size: 75%;
+    font-weight: bold;
     padding: 25px;
-    padding-bottom: 15px;
+    padding-bottom: 25x;
     width: calc(100% - 48px);
     overflow-x: auto;
 }
@@ -124,7 +123,7 @@ aside li a:hover {
     display: inline-block;
     white-space: nowrap;
     list-style: none;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     text-align: center;
     user-select: none;
 }
@@ -134,22 +133,16 @@ aside li a:hover {
 }
 
 .keyboard-key, .special-keyboard-key {
-    background: #3D3D3D; /*linear-gradient(#FAFAFA, #D7D7D7);*/
+    background: #3D3D3D;
     border-radius: 5px;
-    /*border: 1px solid #323232;*/
     color: #CCC;
     cursor: pointer;
-    margin-bottom: 15px;
-    margin-right: 10px;
+    margin-right: 7.5px;
     transition: background-color .2s ease-in-out, box-shadow .2s ease-in-out;
 }
 
-.special-keyboard-key {
-    padding: 10px 45px;
-}
-
 .keyboard-key {
-    padding: 10px 15px;
+    padding: 12px 15px;
 }
 
 #spacebar-key {
@@ -157,13 +150,12 @@ aside li a:hover {
 }
 
 .keyboard-key:hover, .special-keyboard-key:hover {
-    background-color: #1669b7; /*linear-gradient(#E1E1E1, #A4A4A4);*/
+    background-color: #1669b7;
     box-shadow: 0 0 5px #1669b7;
 }
 
 .keyboard-key:active, .special-keyboard-key:active {
     background-color: #00509E;
-    /*background: linear-gradient(#A4A4A4, #E1E1E1);*/
     box-shadow: 0 0 5px #00509E;
 }
 

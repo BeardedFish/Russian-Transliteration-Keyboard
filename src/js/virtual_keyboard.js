@@ -8,7 +8,11 @@ $(function()
     {
         var character = $(this).html(); // The actual key that was clicked on the virtual keyboard
 
-        if (character === "Space")
+        if (character === "Tab")
+        {
+            character = '\t';
+        }
+        else if (character === "Space")
         {
             character = ' ';
         }
