@@ -6,6 +6,7 @@
 
 body {
     background: #141414;
+    color: #CFCFCF;
     font-family: Helvetica, Arial, sans-serif;
     font-size: 100%;
     margin: 0;
@@ -22,7 +23,7 @@ header h1 {
     background: linear-gradient(#1669b7, #00509E);
     display: inline-block;
     margin: 0;
-    padding: 25px 25px;
+    padding: 15px 25px;
     text-shadow: 2px 2px 5px #000;
 }
 
@@ -49,7 +50,6 @@ aside {
 aside, section {
     background-color: #282a2c; /*#FFF;*/
     border: 2px solid #363636;
-    border-radius: 5px;
     box-shadow: 0 0 15px #000;
     margin-bottom: 50px;
 }
@@ -57,14 +57,16 @@ aside, section {
 section h2, aside h2 {
     background: #1F1F1F;
     border-bottom: 2px solid #363636;
-    border-radius: 5px 5px 0 0;
     color: #CCC;
     margin: 0;
-    padding: 25px;
+    padding: 15px 25px;
+}
+
+aside p, aside ul {
+    margin: 25px;
 }
 
 aside ul {
-    margin: 15px;
     padding: 0;
 }
 
@@ -76,10 +78,12 @@ aside li {
 aside li a {
     color: #1669b7;
     text-decoration: none;
+    transition: text-decoration .2s ease-in-out, text-shadow .2s ease-in-out;
 }
 
 aside li a:hover {
     text-decoration: underline;
+    text-shadow: 0 0 2px #1669b7;
 }
 
 #interactive-area {
@@ -134,7 +138,6 @@ aside li a:hover {
 
 .keyboard-key, .special-keyboard-key {
     background: #3D3D3D;
-    border-radius: 5px;
     color: #CCC;
     cursor: pointer;
     margin-right: 7.5px;

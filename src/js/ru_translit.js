@@ -17,7 +17,7 @@ var translitMap = [
     [ "l", "л" ],
     [ "m", "м" ],
     [ "n", "н" ],
-    // [ "o", "о" ],
+    [ "o", "о" ],
     [ "p", "п" ],
     [ "q", "я" ],
     [ "r", "р" ],
@@ -81,5 +81,8 @@ function translit(event)
         }
     }
 
+    var caretPos = document.getElementById('write-area').selectionStart;
+
     $('#write-area').val(text);
+    $("#write-area").selectRange(caretPos);  
 }
