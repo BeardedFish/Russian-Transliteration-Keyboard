@@ -1,10 +1,10 @@
 /*
- * File Name:     mobile.css
+ * File Name:     smaller-screens.css
  * By:            Darian Benam (GitHub: https://github.com/BeardedFish/)
  * Date:          Tuesday, May 19, 2020
  */
 
- @media only screen and (max-width: 480px) {
+ @media only screen and (max-width: 768px) {
     header h1 {
         font-size: 1em;
         width: calc(100% - 50px);
@@ -15,11 +15,7 @@
         width: auto;
     }
 
-    #write-area {
-        margin-bottom: 0;
+    aside h2, section h2 {
+        font-size: 0.8em;
     }
-
-    #virtual-keyboard { /* Mobile devices already have a virtual keyboard so no point to show the entire virtual keyboard */
-        display: none;
-    }
-  }
+}

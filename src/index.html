@@ -4,7 +4,7 @@
         <title>Russian Transliteration Keyboard</title>
         <link rel="icon" type="image/x-icon" href="images/favico.ico">
         <link rel="stylesheet" type="text/css" media="screen" href="css/main.css">
-        <link rel="stylesheet" type="text/css" media="screen" href="css/mobile.css">
+        <link rel="stylesheet" type="text/css" media="screen" href="css/smaller-screens.css">
         <meta charset="utf-8"/>
         <meta name="author" content="Darian Benam">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,82 +17,85 @@
             <h1>Russian Transliteration Keyboard</h1>
         </header>
         <main>
-            <div class="shadow">
-                <section>
-                    <h2>Writing Area</h2>
-                    <div id="interactive-area">
-                        <textarea id="write-area" rows="10" onkeyup="translit(event)"></textarea>
+            <section>
+                <h2>Writing Area</h2>
+                <div id="interactive-area">
+                    <textarea id="write-area" rows="10" onkeyup="translit(event)"></textarea>
 
+                    <div id="virtual-keyboard-container">
                         <div id="virtual-keyboard">
                             <div class="keyboard-row">
-                                <div class="keyboard-key">`</div>
-                                <div class="keyboard-key">1</div>
-                                <div class="keyboard-key">2</div>
-                                <div class="keyboard-key">3</div>
-                                <div class="keyboard-key">4</div>
-                                <div class="keyboard-key">5</div>
-                                <div class="keyboard-key">6</div>
-                                <div class="keyboard-key">7</div>
-                                <div class="keyboard-key">8</div>
-                                <div class="keyboard-key">9</div>
-                                <div class="keyboard-key">0</div>
-                                <div class="keyboard-key">-</div>
-                                <div class="keyboard-key">+</div>
-                                <div class="keyboard-key special-keyboard-key">Backspace</div>
+                                <div class="keyboard-key"><span>ё</span></div>
+                                <div class="keyboard-key"><span>1</span></div>
+                                <div class="keyboard-key"><span>2</span></div>
+                                <div class="keyboard-key"><span>3</span></div>
+                                <div class="keyboard-key"><span>4</span></div>
+                                <div class="keyboard-key"><span>5</span></div>
+                                <div class="keyboard-key"><span>6</span></div>
+                                <div class="keyboard-key"><span>7</span></div>
+                                <div class="keyboard-key"><span>8</span></div>
+                                <div class="keyboard-key"><span>9</span></div>
+                                <div class="keyboard-key"><span>0</span></div>
+                                <div class="keyboard-key"><span>-</span></div>
+                                <div class="keyboard-key"><span>Ъ</span></div>
+                                <div class="special-keyboard-key" id="backspace-key"><span>Backspace</span></div>
                             </div>
 
                             <div class="keyboard-row">
-                                <div class="keyboard-key special-keyboard-key">Tab</div>
-                                <div class="keyboard-key">q</div>
-                                <div class="keyboard-key">w</div>
-                                <div class="keyboard-key">e</div>
-                                <div class="keyboard-key">r</div>
-                                <div class="keyboard-key">t</div>
-                                <div class="keyboard-key">y</div>
-                                <div class="keyboard-key">u</div>
-                                <div class="keyboard-key">i</div>
-                                <div class="keyboard-key">o</div>
-                                <div class="keyboard-key">p</div>
-                                <div class="keyboard-key">[</div>
-                                <div class="keyboard-key">]</div>
+                                <div class="special-keyboard-key" id="tab-key"><span>Tab</span></div>
+                                <div class="keyboard-key"><span>я</span></div>
+                                <div class="keyboard-key"><span>ш</span></div>
+                                <div class="keyboard-key"><span>e</span></div>
+                                <div class="keyboard-key"><span>р</span></div>
+                                <div class="keyboard-key"><span>т</span></div>
+                                <div class="keyboard-key"><span>ы</span></div>
+                                <div class="keyboard-key"><span>у</span></div>
+                                <div class="keyboard-key"><span>и</span></div>
+                                <div class="keyboard-key"><span>п</span></div>
+                                <div class="keyboard-key"><span>п</span></div>
+                                <div class="keyboard-key"><span>Ю</span></div>
+                                <div class="keyboard-key"><span>Щ</span></div>
+                                <div class="special-keyboard-key" id="enter-key"><span>Enter</span></div>
                             </div>
 
                             <div class="keyboard-row">
-                                <div class="keyboard-key">a</div>
-                                <div class="keyboard-key">s</div>
-                                <div class="keyboard-key">d</div>
-                                <div class="keyboard-key">f</div>
-                                <div class="keyboard-key">g</div>
-                                <div class="keyboard-key">h</div>
-                                <div class="keyboard-key">j</div>
-                                <div class="keyboard-key">k</div>
-                                <div class="keyboard-key">l</div>
-                                <div class="keyboard-key">;</div>
-                                <div class="keyboard-key">'</div>
-                                <div class="keyboard-key">\</div>
-                                <div class="keyboard-key special-keyboard-key">New Line</div>
+                                <div class="special-keyboard-key" id="caps-lock-key"><span>Caps Lock</span></div>
+                                <div class="keyboard-key"><span>a</span></div>
+                                <div class="keyboard-key"><span>с</span></div>
+                                <div class="keyboard-key"><span>д</span></div>
+                                <div class="keyboard-key"><span>ф</span></div>
+                                <div class="keyboard-key"><span>г</span></div>
+                                <div class="keyboard-key"><span>ч</span></div>
+                                <div class="keyboard-key"><span>й</span></div>
+                                <div class="keyboard-key"><span>к</span></div>
+                                <div class="keyboard-key"><span>л</span></div>
+                                <div class="keyboard-key"><span>Ь</span></div>
+                                <div class="keyboard-key"><span>Ж</span></div>
+                                <div class="keyboard-key"><span>Э</span></div>
                             </div>
 
                             <div class="keyboard-row">
-                                <div class="keyboard-key">z</div>
-                                <div class="keyboard-key">x</div>
-                                <div class="keyboard-key">c</div>
-                                <div class="keyboard-key">v</div>
-                                <div class="keyboard-key">b</div>
-                                <div class="keyboard-key">n</div>
-                                <div class="keyboard-key">m</div>
-                                <div class="keyboard-key">,</div>
-                                <div class="keyboard-key">.</div>
-                                <div class="keyboard-key">/</div>
+                                <div class="special-keyboard-key" id="left-shift"><span>Shift</span></div>
+                                <div class="keyboard-key"><span>з</span></div>
+                                <div class="keyboard-key"><span>x</span></div>
+                                <div class="keyboard-key"><span>ц</span></div>
+                                <div class="keyboard-key"><span>в</span></div>
+                                <div class="keyboard-key"><span>б</span></div>
+                                <div class="keyboard-key"><span>н</span></div>
+                                <div class="keyboard-key"><span>м</span></div>
+                                <div class="keyboard-key"><span>,</span></div>
+                                <div class="keyboard-key"><span>.</span></div>
+                                <div class="keyboard-key"><span>/</span></div>
+                                <div class="special-keyboard-key" id="right-shift"><span>Shift</span></div>
                             </div>
 
                             <div class="keyboard-row">
-                                <div class="keyboard-key special-keyboard-key" id="spacebar-key">Space</div>
+                                <div class="special-keyboard-key" id="spacebar-key"><span>Space</span></div>
                             </div>
                         </div>
                     </div>
-                </section>
-            </div>
+                </div>
+            </section>
 
             <aside>
                 <h2>External Links</h2>
@@ -107,6 +110,7 @@
                 <h2>About</h2>
 
                 <p>Website By: Darian Benam</p>
+                <p>Status: Under Construction</p>
                 <p>Version: 2.0</p>
             </aside>
         </main>

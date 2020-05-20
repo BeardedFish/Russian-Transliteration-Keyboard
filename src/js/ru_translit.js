@@ -62,15 +62,7 @@ function translit(event)
         {
             if (translitMap[j][0] == text[i].toLowerCase())
             {
-                var translitChar;
-                if (event.shiftKey === undefined || event.getModifierState === undefined)
-                {
-                    translitChar = translitMap[j][1];
-                }
-                else
-                {
-                    translitChar = event.shiftKey || event.getModifierState("CapsLock") ? translitMap[j][1].toUpperCase() : translitMap[j][1];
-                }
+                var translitChar = isUpperCase(text[i]) ? translitMap[j][1].toUpperCase() : translitMap[j][1];
 
                 // Replace the letter to its Russian equivelent
                 text = text.substring(0, i) + translitChar+ text.substring(i + 1);
@@ -85,4 +77,9 @@ function translit(event)
 
     $('#write-area').val(text);
     $("#write-area").selectRange(caretPos);  
+}
+
+function isUpperCase(str)
+{
+    return str === str.toUpperCase();
 }

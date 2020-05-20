@@ -113,14 +113,19 @@ aside li a:hover {
     box-shadow: 0 0 5px #1669b7;
 }
 
-#virtual-keyboard {
+#virtual-keyboard-container {
     background-color: #1F1F1F;
     font-size: 75%;
     font-weight: bold;
     padding: 25px;
-    padding-bottom: 25x;
     width: calc(100% - 48px);
     overflow-x: auto;
+}
+
+#virtual-keyboard {
+    width: 700px;
+    margin: 0 auto;
+    position: relative;
 }
 
 #virtual-keyboard div {
@@ -128,12 +133,20 @@ aside li a:hover {
     white-space: nowrap;
     list-style: none;
     margin-bottom: 5px;
-    text-align: center;
     user-select: none;
 }
 
 #virtual-keyboard div:last-child {
-    margin-bottom: 5px;
+    margin-right: 25px;
+}
+
+.keyboard-row {
+    position: relative;
+    width: 100%;
+}
+
+#virtual-keyboard div:last-child {
+    margin-bottom: 0;
 }
 
 .keyboard-key, .special-keyboard-key {
@@ -141,15 +154,55 @@ aside li a:hover {
     color: #CCC;
     cursor: pointer;
     margin-right: 7.5px;
+    text-align: left;
     transition: background-color .2s ease-in-out, box-shadow .2s ease-in-out;
 }
 
 .keyboard-key {
-    padding: 12px 15px;
+    height: 35px;
+    width: 35px;
+}
+
+.keyboard-key span, .special-keyboard-key span {
+    top: 5px;
+    left: 7.5px;
+    position: relative;
+}
+
+.special-keyboard-key {
+    height: 35px;
+    width: 60px;
+}
+
+#backspace-key {
+    width: 104px;
+}
+
+#caps-lock-key, #left-shift, #tab-key {
+    width: 75px;
+}
+
+#enter-key {
+    width: 63px;
+    height: 80px;
+    position: absolute;
+    margin-left: 4px;
+    z-index: 1;
+}
+
+#right-shift {
+    width: 155px;
 }
 
 #spacebar-key {
-    padding: 10px 150px;
+    text-align: center;
+    margin: 0;
+    width: 100%;
+}
+
+#spacebar-key span {
+    top: 10px;
+    left: 0;
 }
 
 .keyboard-key:hover, .special-keyboard-key:hover {
@@ -162,7 +215,6 @@ aside li a:hover {
     box-shadow: 0 0 5px #00509E;
 }
 
-.keyboard-row {
-    position: relative;
-    width: 100%;
+.special-key-on {
+    background-color: #1669b7;
 }
