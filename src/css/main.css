@@ -1,0 +1,114 @@
+/*
+ * File Name:     main.css
+ * By:            Darian Benam (GitHub: https://github.com/BeardedFish/)
+ * Date:          Tuesday, May 5, 2020
+ */
+
+body {
+    background: #141414;
+    color: #CFCFCF;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 100%;
+    margin: 0;
+}
+
+header {
+    background-color: #1F1F1F;
+    box-shadow: 0 0 15px #000;
+    color: #FFF;
+    padding: 0 10%;
+}
+
+header h1 {
+    background: linear-gradient(#1669b7, #00509E);
+    display: inline-block;
+    margin: 0;
+    padding: 15px 25px;
+    text-shadow: 2px 2px 5px #000;
+}
+
+header h1, h2 {
+    font-weight: normal;
+}
+
+main {
+    margin: 50px auto;
+    overflow: visible;
+    width: 80%;
+}
+
+section {
+    float: left;
+    width: 70%;
+}
+
+aside {
+    float: right;
+    width: 25%;
+}
+
+aside, section {
+    background-color: #282a2c; /*#FFF;*/
+    border: 2px solid #363636;
+    box-shadow: 0 0 15px #000;
+    margin-bottom: 50px;
+}
+
+section h2, aside h2 {
+    background: #1F1F1F;
+    border-bottom: 2px solid #363636;
+    color: #CCC;
+    margin: 0;
+    padding: 15px 25px;
+}
+
+aside p, aside ul {
+    margin: 25px;
+}
+
+aside ul {
+    padding: 0;
+}
+
+aside li {
+    list-style: none;
+    margin-bottom: 15px;
+}
+
+aside li a {
+    color: #1669b7;
+    text-decoration: none;
+    transition: text-decoration .2s ease-in-out, text-shadow .2s ease-in-out;
+}
+
+aside li a:hover {
+    text-decoration: underline;
+    text-shadow: 0 0 2px #1669b7;
+}
+
+#interactive-area {
+    margin: 25px;
+}
+
+#write-area {
+    background-color: #3d3d3d;
+    border: none;
+    caret-color: #FFF;
+    color: #FFF;
+    font-size: 150%;
+    height: 250px;
+    line-height: 1.5em;
+    margin-bottom: 25px;
+    resize: none;
+    width: calc(100% - 18px);
+    padding: 5px 10px;
+    transition: box-shadow .2s ease-in-out;
+}
+
+#write-area:hover {
+    box-shadow: 0 0 5px #1669b7;
+}
+
+#write-area:focus {
+    box-shadow: 0 0 5px #1669b7;
+}
