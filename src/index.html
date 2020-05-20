@@ -5,6 +5,7 @@
         <link rel="icon" type="image/x-icon" href="images/favico.ico">
         <link rel="stylesheet" type="text/css" media="screen" href="css/main.css">
         <link rel="stylesheet" type="text/css" media="screen" href="css/smaller-screens.css">
+        <link rel="stylesheet" type="text/css" href="css/virtual-keyboard.css">
         <meta charset="utf-8"/>
         <meta name="author" content="Darian Benam">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,24 +21,76 @@
             <section>
                 <h2>Writing Area</h2>
                 <div id="interactive-area">
-                    <textarea id="write-area" rows="10" onkeyup="translit(event)"></textarea>
+                    <textarea id="write-area" rows="10"></textarea>
 
                     <div id="virtual-keyboard-container">
                         <div id="virtual-keyboard">
                             <div class="keyboard-row">
-                                <div class="keyboard-key"><span>ё</span></div>
-                                <div class="keyboard-key"><span>1</span></div>
-                                <div class="keyboard-key"><span>2</span></div>
-                                <div class="keyboard-key"><span>3</span></div>
-                                <div class="keyboard-key"><span>4</span></div>
-                                <div class="keyboard-key"><span>5</span></div>
-                                <div class="keyboard-key"><span>6</span></div>
-                                <div class="keyboard-key"><span>7</span></div>
-                                <div class="keyboard-key"><span>8</span></div>
-                                <div class="keyboard-key"><span>9</span></div>
-                                <div class="keyboard-key"><span>0</span></div>
-                                <div class="keyboard-key"><span>-</span></div>
-                                <div class="keyboard-key"><span>Ъ</span></div>
+                                <div class="symbol">
+                                    <span class="off">ё</span>
+                                    <span class="on">Ё</span>
+                                </div>
+                                
+                                <div class="symbol">
+                                    <span class="off">1</span>
+                                    <span class="on">!</span>
+                                </div>
+
+                                <div class="symbol">
+                                    <span class="off">2</span>
+                                    <span class="on">@</span>
+                                </div>
+
+                                <div class="symbol">
+                                    <span class="off">3</span>
+                                    <span class="on">№</span>
+                                </div>
+
+                                <div class="symbol">
+                                    <span class="off">4</span>
+                                    <span class="on">$</span>
+                                </div>
+
+                                <div class="symbol">
+                                    <span class="off">5</span>
+                                    <span class="on">%</span>
+                                </div>
+
+                                <div class="symbol">
+                                    <span class="off">6</span>
+                                    <span class="on">^</span>
+                                </div>
+
+                                <div class="symbol">
+                                    <span class="off">7</span>
+                                    <span class="on">&#38;</span>
+                                </div>
+
+                                <div class="symbol">
+                                    <span class="off">8</span>
+                                    <span class="on">*</span>
+                                </div>
+
+                                <div class="symbol">
+                                    <span class="off">9</span>
+                                    <span class="on">(</span>
+                                </div>
+
+                                <div class="symbol">
+                                    <span class="off">0</span>
+                                    <span class="on">)</span>
+                                </div>
+
+                                <div class="symbol">
+                                    <span class="off">-</span>
+                                    <span class="on">_</span>
+                                </div>
+
+                                <div class="symbol">
+                                    <span class="off">Ъ</span>
+                                    <span class="on">Ъ</span>
+                                </div>
+
                                 <div class="special-keyboard-key" id="backspace-key"><span>Backspace</span></div>
                             </div>
 
@@ -51,10 +104,19 @@
                                 <div class="keyboard-key"><span>ы</span></div>
                                 <div class="keyboard-key"><span>у</span></div>
                                 <div class="keyboard-key"><span>и</span></div>
+                                <div class="keyboard-key"><span>o</span></div>
                                 <div class="keyboard-key"><span>п</span></div>
-                                <div class="keyboard-key"><span>п</span></div>
-                                <div class="keyboard-key"><span>Ю</span></div>
-                                <div class="keyboard-key"><span>Щ</span></div>
+
+                                <div class="symbol">
+                                    <span class="off">ю</span>
+                                    <span class="on">Ю</span>
+                                </div>
+
+                                <div class="symbol">
+                                    <span class="off">щ</span>
+                                    <span class="on">Щ</span>
+                                </div>
+
                                 <div class="special-keyboard-key" id="enter-key"><span>Enter</span></div>
                             </div>
 
@@ -69,9 +131,21 @@
                                 <div class="keyboard-key"><span>й</span></div>
                                 <div class="keyboard-key"><span>к</span></div>
                                 <div class="keyboard-key"><span>л</span></div>
-                                <div class="keyboard-key"><span>Ь</span></div>
-                                <div class="keyboard-key"><span>Ж</span></div>
-                                <div class="keyboard-key"><span>Э</span></div>
+                            
+                                <div class="symbol">
+                                    <span class="off">ь</span>
+                                    <span class="on">Ь</span>
+                                </div>
+
+                                <div class="symbol">
+                                    <span class="off">ж</span>
+                                    <span class="on">Ж</span>
+                                </div>
+
+                                <div class="symbol">
+                                    <span class="off">э</span>
+                                    <span class="on">Э</span>
+                                </div>
                             </div>
 
                             <div class="keyboard-row">
@@ -83,9 +157,22 @@
                                 <div class="keyboard-key"><span>б</span></div>
                                 <div class="keyboard-key"><span>н</span></div>
                                 <div class="keyboard-key"><span>м</span></div>
-                                <div class="keyboard-key"><span>,</span></div>
-                                <div class="keyboard-key"><span>.</span></div>
-                                <div class="keyboard-key"><span>/</span></div>
+
+                                <div class="symbol">
+                                    <span class="off">,</span>
+                                    <span class="on">&lt;</span>
+                                </div>
+
+                                <div class="symbol">
+                                    <span class="off">.</span>
+                                    <span class="on">&gt;</span>
+                                </div>
+
+                                <div class="symbol">
+                                    <span class="off">/</span>
+                                    <span class="on">?</span>
+                                </div>
+
                                 <div class="special-keyboard-key" id="right-shift"><span>Shift</span></div>
                             </div>
 

@@ -1,0 +1,110 @@
+/*
+ * File Name:     virtual-keyboard.css
+ * By:            Darian Benam (GitHub: https://github.com/BeardedFish/)
+ * Date:          Wednesday, May 20, 2020
+ */
+
+#virtual-keyboard-container {
+    background-color: #1F1F1F;
+    font-size: 75%;
+    font-weight: bold;
+    padding: 25px;
+    width: calc(100% - 48px);
+    overflow-x: auto;
+}
+
+#virtual-keyboard {
+    width: 700px;
+    margin: 0 auto;
+    position: relative;
+}
+
+#virtual-keyboard div {
+    display: inline-block;
+    white-space: nowrap;
+    list-style: none;
+    margin-bottom: 5px;
+    user-select: none;
+}
+
+#virtual-keyboard div:last-child {
+    margin-right: 25px;
+}
+
+.keyboard-row {
+    position: relative;
+    width: 100%;
+}
+
+#virtual-keyboard div:last-child {
+    margin-bottom: 0;
+}
+
+.symbol, .keyboard-key, .special-keyboard-key {
+    background: #3D3D3D;
+    color: #CCC;
+    cursor: pointer;
+    height: 35px;
+    margin-right: 7.5px;
+    text-align: left;
+    transition: background-color .2s ease-in-out, box-shadow .2s ease-in-out;
+}
+
+.special-key-on {
+    background-color: #1669b7;
+}
+
+.keyboard-key, .symbol {
+    width: 35px;
+}
+
+.symbol span, .keyboard-key span, .special-keyboard-key span {
+    top: 5px;
+    left: 7.5px;
+    position: relative;
+}
+
+#backspace-key {
+    width: 104px;
+}
+
+#caps-lock-key, #left-shift, #tab-key {
+    width: 75px;
+}
+
+#enter-key {
+    width: 63px;
+    height: 80px;
+    position: absolute;
+    margin-left: 4px;
+    z-index: 1;
+}
+
+#right-shift {
+    width: 155px;
+}
+
+#spacebar-key {
+    text-align: center;
+    margin: 0;
+    width: 100%;
+}
+
+#spacebar-key span {
+    top: 10px;
+    left: 0;
+}
+
+.keyboard-key:hover, .special-keyboard-key:hover, .symbol:hover {
+    background-color: #1669b7;
+    box-shadow: 0 0 5px #1669b7;
+}
+
+.keyboard-key:active, .special-keyboard-key:active, .symbol:active {
+    background-color: #00509E;
+    box-shadow: 0 0 5px #00509E;
+}
+
+.on {
+    display: none;
+}

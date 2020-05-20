@@ -1,5 +1,5 @@
 // File Name:     ru_translit.js
-// By:            Darian Benam (GitHub: https://github.com/BeardedFish)
+// By:            Darian Benam (GitHub: https://github.com/BeardedFish/)
 // Date:          Tuesday, May 5, 2020
 
 var translitMap = [
@@ -32,7 +32,7 @@ var translitMap = [
     [ "`", "ё" ],
     [ "~", "Ё" ],    
     [ "$", "\"" ],
-    [ "%", ":" ],
+    // [ "%", "" ],
     [ "=", "ъ" ],
     [ "+", "Ъ" ],
     [ "[", "ю" ],
@@ -50,9 +50,14 @@ var translitMap = [
 $(document).ready(function()
 {
     $('#write-area').val('');
+
+    $('#write-area').keyup(function()
+    {
+        translit();
+    });
 });
 
-function translit(event)
+function translit()
 {
     var text = $('#write-area').val();
 

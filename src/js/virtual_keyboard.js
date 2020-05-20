@@ -1,5 +1,5 @@
 // File Name:     virtual_keyboard.js
-// By:            Darian Benam (GitHub: https://github.com/BeardedFish)
+// By:            Darian Benam (GitHub: https://github.com/BeardedFish/)
 // Date:          Wednesday, May 6, 2020
 
 var virtualKeyboardCapsLockOn = false;
@@ -7,6 +7,7 @@ var virtualKeyboardShiftOn = false;
 
 $(function()
 {
+    // Regular letters (a, b, c, etc.)
     $('#virtual-keyboard .keyboard-key').click(function()
     {
         var character = $(this).find("span").html(); // The actual key that was clicked on the virtual keyboard
@@ -19,6 +20,15 @@ $(function()
         insertAtCaret(document.getElementById('write-area'), character);
         translit(this);
     });
+
+    //
+    $('#virtual-keyboard .symbol').click(function()
+    {
+        var character = $('span:visible', $(this)).html(); // Get the visible span inner text
+
+        insertAtCaret(document.getElementById('write-area'), character);
+        translit(this);
+    });
 });
 
 $(function()
@@ -26,7 +36,7 @@ $(function()
     $('#virtual-keyboard .special-keyboard-key').click(function()
     {
         var specialKey = $(this).find("span").html(); // The actual key that was clicked on the virtual keyboard
-       
+
         if (specialKey === "Backspace")
         {
             var startPos = document.getElementById('write-area').selectionStart;
@@ -54,14 +64,10 @@ $(function()
 
             virtualKeyboardCapsLockOn = $(this).hasClass("special-key-on");
 
-            $(".keyboard-row").find("div").each(function()
+            if (!virtualKeyboardShiftOn)
             {
-                if ($(this).hasClass("keyboard-key"))
-                {
-                    var newChar = virtualKeyboardCapsLockOn ? $(this).html().toUpperCase() : $(this).html().toLowerCase();
-                    $(this).html(newChar);
-                }
-            });
+                toggleKeysUppercase();
+            }
 
             return;
         }
@@ -71,25 +77,19 @@ $(function()
         }
         else if (specialKey === "Shift")
         {
-            $(".keyboard-row").find("div").each(function()
+            $('#left-shift').toggleClass('special-key-on');
+            $('#right-shift').toggleClass('special-key-on');
+        
+            $('.keyboard-key').toggleClass('uppercase');
+            $('.symbol span').toggle();
+            
+            if (!virtualKeyboardCapsLockOn)
             {
-                if ($(this).is("#left-shift") || $(this).is("#right-shift"))
-                {
-                    $(this).toggleClass("special-key-on");
-                }
-            });
-
-            virtualKeyboardShiftOn = $(this).hasClass("special-key-on");
-
-            $(".keyboard-row").find("div").each(function()
-            {
-                if ($(this).hasClass("keyboard-key"))
-                {
-                    var newChar = virtualKeyboardCapsLockOn ? $(this).html().toUpperCase() : $(this).html().toLowerCase();
-                    $(this).html(newChar);
-                }
-            });
-
+                toggleKeysUppercase();
+            }
+        
+            virtualKeyboardShiftOn = !virtualKeyboardShiftOn;
+            
             return;
         }
         else if (specialKey === "Space")
@@ -166,4 +166,16 @@ function insertAtCaret(element, text)
 
         element.focus();
     }
+}
+
+function toggleKeysUppercase()
+{
+    $(".keyboard-row").find("div").each(function()
+    {
+        if ($(this).hasClass("keyboard-key"))
+        {
+            var newChar = $(this).hasClass('uppercase') ? $(this).html().toUpperCase() : $(this).html().toLowerCase();
+            $(this).html(newChar);
+        }
+    });
 }
