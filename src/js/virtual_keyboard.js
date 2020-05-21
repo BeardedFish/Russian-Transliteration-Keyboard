@@ -26,6 +26,16 @@ $(function()
     {
         var character = $('span:visible', $(this)).html(); // Get the visible span inner text
 
+        if (character === "&lt;")
+        {
+            character = '<';
+        }
+
+        if (character === "&gt;")
+        {
+            character = '>';
+        }
+
         insertAtCaret(document.getElementById('write-area'), character);
         translit(this);
     });
