@@ -4,6 +4,10 @@
  * Date:          Tuesday, May 5, 2020
  */
 
+aside, header, main, section {
+    display: block;
+}
+
 body {
     background: #141414;
     color: #CFCFCF;

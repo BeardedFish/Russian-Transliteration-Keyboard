@@ -34,7 +34,7 @@ var translitMap = [
     [ "z", "з" ],
     [ "`", "ё" ],
     [ "~", "Ё" ],
-    //[ "$", "\"" ],
+    [ "$", "₽" ],
     [ "#", "№" ],
     // [ "%", "" ],
     [ "=", "ъ" ],
@@ -82,7 +82,7 @@ $(window).on("load", function()
 
 function isUpperCase(str)
 {
-    if (str === '`' || str === '-' || str === '=' || str === ';' || str === '\'')
+    if (str === '`' || str === '-' || str === '=' || str === ';' || str === '\'' || str === '[' || str === ']')
     {
         return false;    
     }
@@ -102,8 +102,8 @@ function translit()
             {
                 // Replace the letter to its Russian equivelent
                 var translitChar = isUpperCase(text[i]) ? translitMap[j][1].toUpperCase() : translitMap[j][1];
-
                 text = text.substring(0, i) + translitChar+ text.substring(i + 1);
+
                 // No need to check the other letters so just break out of the inner for loop
                 break;
             }
