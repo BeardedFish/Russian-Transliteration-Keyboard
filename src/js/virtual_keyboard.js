@@ -5,52 +5,74 @@
 var virtualKeyboardCapsLockOn = false;
 var virtualKeyboardShiftOn = false;
 
+$.fn.selectRange = function(start, end) // Function borrowed from: https://stackoverflow.com/a/841121/11760346/
+{
+    if (end === undefined)
+    {
+        end = start;
+    }
+
+    return this.each(function()
+    {
+        if("selectionStart" in this)
+        {
+            this.selectionStart = start;
+            this.selectionEnd = end;
+        }
+        else if (this.setSelectionRange)
+        {
+            this.setSelectionRange(start, end);
+        }
+        else if (this.createTextRange)
+        {
+            var range = this.createTextRange();
+            range.collapse(true);
+            range.moveEnd("character", end);
+            range.moveStart("character", start);
+            range.select();
+        }
+    });
+};
+
 $(function()
 {
     // Regular letters (a, b, c, etc.)
-    $('#virtual-keyboard .keyboard-key').click(function()
+    $("#virtual-keyboard .regular-key").click(function()
     {
         var character = $(this).find("span").html(); // The actual key that was clicked on the virtual keyboard
 
-        if ($(this).hasClass('uppercase'))
+        if ($(this).hasClass("uppercase"))
         {
             character = character.toUpperCase();
         }
 
-        insertAtCaret(document.getElementById('write-area'), character);
+        insertAtCaret(document.getElementById("write-area"), character);
         translit(this);
     });
 
-    //
-    $('#virtual-keyboard .symbol').click(function()
+    // Symbol characters (!, @, #, etc.)
+    $("#virtual-keyboard .symbol-key").click(function()
     {
-        var character = $('span:visible', $(this)).html(); // Get the visible span inner text
+        var character = $("span:visible", $(this)).html(); // Get the visible span inner text
 
-        if (character === "&lt;")
+        if (character === "&amp;") // Convert HTML ampersand code to the ampersand sign
         {
-            character = '<';
+            character = '&';
         }
 
-        if (character === "&gt;")
-        {
-            character = '>';
-        }
-
-        insertAtCaret(document.getElementById('write-area'), character);
+        insertAtCaret(document.getElementById("write-area"), character);
         translit(this);
     });
-});
 
-$(function()
-{
-    $('#virtual-keyboard .special-keyboard-key').click(function()
+    // Special keys (backspace, shift, tab, etc.)
+    $("#virtual-keyboard .special-key").click(function()
     {
         var specialKey = $(this).find("span").html(); // The actual key that was clicked on the virtual keyboard
 
         if (specialKey === "Backspace")
         {
-            var startPos = document.getElementById('write-area').selectionStart;
-            var endPos = document.getElementById('write-area').selectionEnd;
+            var startPos = document.getElementById("write-area").selectionStart;
+            var endPos = document.getElementById("write-area").selectionEnd;
 
             if (endPos == 0) // There is nothing to backspace
             {
@@ -70,7 +92,7 @@ $(function()
         else if (specialKey === "Caps Lock")
         {
             $(this).toggleClass("special-key-on");
-            $('.keyboard-key').toggleClass('uppercase');
+            $(".regular-key").toggleClass("uppercase");
 
             virtualKeyboardCapsLockOn = $(this).hasClass("special-key-on");
 
@@ -83,15 +105,15 @@ $(function()
         }
         else if (specialKey === "Enter")
         {
-            specialKey = '\n';
+            specialKey = "\n";
         }
         else if (specialKey === "Shift")
         {
-            $('#left-shift').toggleClass('special-key-on');
-            $('#right-shift').toggleClass('special-key-on');
+            $("#left-shift").toggleClass("special-key-on");
+            $("#right-shift").toggleClass("special-key-on");
         
-            $('.keyboard-key').toggleClass('uppercase');
-            $('.symbol span').toggle();
+            $(".regular-key").toggleClass("uppercase");
+            $(".symbol-key span").toggle();
             
             if (!virtualKeyboardCapsLockOn)
             {
@@ -104,46 +126,16 @@ $(function()
         }
         else if (specialKey === "Space")
         {
-            specialKey = ' ';
+            specialKey = " ";
         }
         else if (specialKey === "Tab")
         {
-            specialKey = '\t';
+            specialKey = "\t";
         }
 
-        insertAtCaret(document.getElementById('write-area'), specialKey);
+        insertAtCaret(document.getElementById("write-area"), specialKey);
     });
 });
-
-// https://stackoverflow.com/a/841121/11760346/
-$.fn.selectRange = function(start, end)
-{
-    if (end === undefined)
-    {
-        end = start;
-    }
-
-    return this.each(function()
-    {
-        if('selectionStart' in this)
-        {
-            this.selectionStart = start;
-            this.selectionEnd = end;
-        }
-        else if (this.setSelectionRange)
-        {
-            this.setSelectionRange(start, end);
-        }
-        else if (this.createTextRange)
-        {
-            var range = this.createTextRange();
-            range.collapse(true);
-            range.moveEnd('character', end);
-            range.moveStart('character', start);
-            range.select();
-        }
-    });
-};
 
 function insertAtCaret(element, text)
 {
@@ -182,9 +174,9 @@ function toggleKeysUppercase()
 {
     $(".keyboard-row").find("div").each(function()
     {
-        if ($(this).hasClass("keyboard-key"))
+        if ($(this).hasClass("regular-key"))
         {
-            var newChar = $(this).hasClass('uppercase') ? $(this).html().toUpperCase() : $(this).html().toLowerCase();
+            var newChar = $(this).hasClass("uppercase") ? $(this).html().toUpperCase() : $(this).html().toLowerCase();
             $(this).html(newChar);
         }
     });

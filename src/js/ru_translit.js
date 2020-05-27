@@ -2,6 +2,9 @@
 // By:            Darian Benam (GitHub: https://github.com/BeardedFish/)
 // Date:          Tuesday, May 5, 2020
 
+var ctrlKeyDown = false;
+var shiftWithArrowsDown = false;
+
 var translitMap = [
     // [ "a", "a" ],
     [ "b", "б" ],
@@ -30,8 +33,9 @@ var translitMap = [
     [ "y", "ы" ],
     [ "z", "з" ],
     [ "`", "ё" ],
-    [ "~", "Ё" ],    
-    [ "$", "\"" ],
+    [ "~", "Ё" ],
+    //[ "$", "\"" ],
+    [ "#", "№" ],
     // [ "%", "" ],
     [ "=", "ъ" ],
     [ "+", "Ъ" ],
@@ -44,22 +48,51 @@ var translitMap = [
     [ ";", "ь" ],
     [ ":", "Ь" ],
     [ "'", "ж" ],
-    [ "\"", "Ж" ]
+    [ "\"", "Ж" ],
+    [ "<", "«" ],
+    [ ">", "»" ]
 ];
 
-$(document).ready(function()
+$(window).on("load", function()
 {
-    $('#write-area').val('');
+    $("#write-area").val("");
 
-    $('#write-area').keyup(function()
+    $("#write-area").keydown(function(event)
     {
-        translit();
+        ctrlKeyDown = event.ctrlKey;
+        shiftWithArrowsDown = event.shiftKey && event.keyCode >= 37 && event.keyCode <= 40; // This is to prevent a bug that doesn't allow the user to highlight text with shift and arrow keys
+    });
+
+    $("#write-area").keyup(function()
+    {
+        if (!ctrlKeyDown && !shiftWithArrowsDown)
+        {
+            translit();
+        }
+    });
+
+    $("#write-area").on("paste", function()
+    {
+        setTimeout(function() // If we don't put translit() in the setTimeout() function then the translit() function will never transliterate the pasted text 
+        {
+            translit();
+        }, 100);
     });
 });
 
+function isUpperCase(str)
+{
+    if (str === '`' || str === '-' || str === '=' || str === ';' || str === '\'')
+    {
+        return false;    
+    }
+
+    return str === str.toUpperCase();
+}
+
 function translit()
 {
-    var text = $('#write-area').val();
+    var text = $("#write-area").val();
 
     for (var i = 0; i < text.length; i++)
     {
@@ -67,11 +100,10 @@ function translit()
         {
             if (translitMap[j][0] == text[i].toLowerCase())
             {
+                // Replace the letter to its Russian equivelent
                 var translitChar = isUpperCase(text[i]) ? translitMap[j][1].toUpperCase() : translitMap[j][1];
 
-                // Replace the letter to its Russian equivelent
                 text = text.substring(0, i) + translitChar+ text.substring(i + 1);
-
                 // No need to check the other letters so just break out of the inner for loop
                 break;
             }
@@ -80,11 +112,6 @@ function translit()
 
     var caretPos = document.getElementById('write-area').selectionStart;
 
-    $('#write-area').val(text);
+    $("#write-area").val(text);
     $("#write-area").selectRange(caretPos);  
-}
-
-function isUpperCase(str)
-{
-    return str === str.toUpperCase();
 }

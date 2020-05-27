@@ -14,9 +14,9 @@
 }
 
 #virtual-keyboard {
-    width: 700px;
     margin: 0 auto;
     position: relative;
+    width: 695px;
 }
 
 #virtual-keyboard div {
@@ -28,10 +28,11 @@
 }
 
 #virtual-keyboard div:last-child {
-    margin-right: 25px;
+    margin-right: 0;
 }
 
 .keyboard-row {
+    margin-right: 25px;
     position: relative;
     width: 100%;
 }
@@ -40,43 +41,47 @@
     margin-bottom: 0;
 }
 
-.symbol, .keyboard-key, .special-keyboard-key {
+.on {
+    display: none;
+}
+
+.symbol-key, .regular-key, .special-key {
     background: #3D3D3D;
     color: #CCC;
     cursor: pointer;
+    float: left;
     height: 35px;
-    margin-right: 7.5px;
+    margin-right: 10px;
     text-align: left;
     transition: background-color .2s ease-in-out, box-shadow .2s ease-in-out;
 }
 
 .special-key-on {
-    background-color: #1669b7;
+    background-color: #1669B7;
 }
 
-.keyboard-key, .symbol {
+.regular-key, .symbol-key {
     width: 35px;
 }
 
-.symbol span, .keyboard-key span, .special-keyboard-key span {
+.symbol-key span, .regular-key span, .special-key span {
     top: 5px;
     left: 7.5px;
     position: relative;
 }
 
 #backspace-key {
-    width: 104px;
+    width: 110px;
 }
 
 #caps-lock-key, #left-shift, #tab-key {
-    width: 75px;
+    width: 80px;
 }
 
 #enter-key {
-    width: 63px;
-    height: 80px;
+    width: 65px;
+    height: 82.5px;
     position: absolute;
-    margin-left: 4px;
     z-index: 1;
 }
 
@@ -95,16 +100,12 @@
     left: 0;
 }
 
-.keyboard-key:hover, .special-keyboard-key:hover, .symbol:hover {
-    background-color: #1669b7;
-    box-shadow: 0 0 5px #1669b7;
+.regular-key:hover, .special-key:hover, .symbol-key:hover {
+    background-color: #1669B7;
+    box-shadow: 0 0 5px #1669B7;
 }
 
-.keyboard-key:active, .special-keyboard-key:active, .symbol:active {
+.regular-key:active, .special-key:active, .symbol-key:active {
     background-color: #00509E;
     box-shadow: 0 0 5px #00509E;
-}
-
-.on {
-    display: none;
 }

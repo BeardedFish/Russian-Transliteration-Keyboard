@@ -20,7 +20,7 @@ header {
 }
 
 header h1 {
-    background: linear-gradient(#1669b7, #00509E);
+    background: linear-gradient(#1669B7, #00509E);
     display: inline-block;
     margin: 0;
     padding: 15px 25px;
@@ -48,7 +48,7 @@ aside {
 }
 
 aside, section {
-    background-color: #282a2c; /*#FFF;*/
+    background-color: #282a2C;
     border: 2px solid #363636;
     box-shadow: 0 0 15px #000;
     margin-bottom: 50px;
@@ -76,14 +76,14 @@ aside li {
 }
 
 aside li a {
-    color: #1669b7;
+    color: #1669B7;
     text-decoration: none;
     transition: text-decoration .2s ease-in-out, text-shadow .2s ease-in-out;
 }
 
 aside li a:hover {
     text-decoration: underline;
-    text-shadow: 0 0 2px #1669b7;
+    text-shadow: 0 0 2px #1669B7;
 }
 
 #interactive-area {
@@ -91,7 +91,7 @@ aside li a:hover {
 }
 
 #write-area {
-    background-color: #3d3d3d;
+    background-color: #3D3D3D;
     border: none;
     caret-color: #FFF;
     color: #FFF;
@@ -99,16 +99,16 @@ aside li a:hover {
     height: 250px;
     line-height: 1.5em;
     margin-bottom: 25px;
+    padding: 5px 10px;
     resize: none;
     width: calc(100% - 18px);
-    padding: 5px 10px;
     transition: box-shadow .2s ease-in-out;
 }
 
 #write-area:hover {
-    box-shadow: 0 0 5px #1669b7;
+    box-shadow: 0 0 5px #1669B7;
 }
 
 #write-area:focus {
-    box-shadow: 0 0 5px #1669b7;
+    box-shadow: 0 0 5px #1669B7;
 }

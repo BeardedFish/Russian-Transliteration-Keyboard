@@ -4,7 +4,7 @@
  * Date:          Tuesday, May 19, 2020
  */
 
- @media only screen and (max-width: 768px) {
+ @media only screen and (max-width: 1025px) {
     header h1 {
         font-size: 1em;
         width: calc(100% - 50px);
